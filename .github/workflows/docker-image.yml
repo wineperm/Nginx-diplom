@@ -29,4 +29,4 @@ jobs:
       with:
         context: .
         push: true
-        tags: cr.yandex/<YOUR_REGISTRY_ID>/my-nginx-app:latest
+        tags: cr.yandex/crp8qogn8i9j95t88e78/my-nginx-app:latest
