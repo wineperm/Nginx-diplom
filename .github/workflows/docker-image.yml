@@ -29,5 +29,5 @@ jobs:
       with:
         context: .
         push: true
-        tags: cr.yandex/crp8qogn8i9j95t88e78/my-nginx-app:latest
+        tags: cr.yandex/my-nginx-app:latest
         no-cache: true
