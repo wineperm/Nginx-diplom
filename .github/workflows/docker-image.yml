@@ -30,3 +30,4 @@ jobs:
         context: .
         push: true
         tags: cr.yandex/crp8qogn8i9j95t88e78/my-nginx-app:latest
+        platforms: linux/amd64  # Указываем только одну платформу
