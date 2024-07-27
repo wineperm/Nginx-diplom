@@ -1,11 +1,9 @@
 # Используем официальный образ Nginx
 FROM nginx:latest
 
-# Копируем конфигурационный файл Nginx
+# Копируем конфигурационный файл Nginx и статические файлы в один слой
 COPY nginx.conf /etc/nginx/nginx.conf
-
-# Копируем статические файлы
-COPY html/ /usr/share/nginx/html/html/
+COPY html /usr/share/nginx/html
 
 # Открываем порт 80
 EXPOSE 80
