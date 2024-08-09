@@ -54,4 +54,4 @@ jobs:
 
     - name: Update deployment image
       run: |
-        kubectl set image deployment/my-nginx-app my-nginx-app=Wineperm/my-nginx-app:${{ github.sha }}
+        kubectl set image deployment/my-nginx-app my-nginx-app=wineperm/my-nginx-app:${{ github.sha }}
