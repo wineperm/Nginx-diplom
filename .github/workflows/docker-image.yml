@@ -1,9 +1,13 @@
 name: Build, Push and Deploy Docker Image
 
 on:
-  push:
-    branches:
-      - main
+  # Запуск по нажатию кнопки
+  workflow_dispatch:
+
+  # Запуск по коммиту (закомментировано)
+  # push:
+  #   branches:
+  #     - main
 
 jobs:
   build:
