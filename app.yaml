@@ -9,22 +9,33 @@ metadata:
   name: my-nginx-app
   namespace: application
 spec:
-  replicas: 1
+  replicas: 10  # Установите общее количество реплик, которое будет распределено по воркерам
   selector:
     matchLabels:
       app: my-nginx-app
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 1
+      maxSurge: 1
   template:
     metadata:
-      namespace: application
       labels:
         app: my-nginx-app
     spec:
       containers:
       - name: my-nginx-app
-        image: wineperm/my-nginx-app:v1.0.0
+        image: wineperm/my-nginx-app:latest
         imagePullPolicy: Always
         ports:
         - containerPort: 80
+      topologySpreadConstraints:
+      - maxSkew: 5  # Увеличиваем maxSkew для более гибкого распределения
+        topologyKey: "kubernetes.io/hostname"
+        whenUnsatisfiable: DoNotSchedule
+        labelSelector:
+          matchLabels:
+            app: my-nginx-app
 ---
 apiVersion: v1
 kind: Service
